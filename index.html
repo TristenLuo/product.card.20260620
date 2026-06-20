@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        .card{
+            width: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 1px 10px 1px #ccc;
+            display: inline-block;
+            margin: 30px;
+            transition: transform 0.2s ease;
+        }
+        .card .head{
+            height: 128px;
+            overflow: hidden;
+        }
+        .head img{
+            width: 100%;
+            transition: transform 0.5s ease;
+        }
+        .card .box{
+            padding: 10px;
+        }
+        .box .content{
+            text-align: left;
+        }
+        .content h3{
+            font-size: 16px;
+        }
+        .content p{
+            font-size: 10px;
+        }
+        .content>span:nth-child(3){
+            color:red;
+        }
+        .content>span:nth-child(4){
+            color: #666;
+            font-size: 12px;
+        }
+        .box .btn{
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .btn button{
+             /* ---------- 加这一行，强行开GPU加速 ---------- */
+            will-change: transform;
+            
+            line-height: 28px;
+            flex-grow: 1;
+            /* height: 28px;
+            width: 76px; */
+            border: none;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.5s ease, background-color 0.5s ease;
+        }
+        .btn button:nth-child(1){
+            background-color: green;
+        }
+        .btn button:nth-child(2){
+            background-color: red;
+        }
+
+        .card:hover{
+            transform: translateY(-10px);
+            box-shadow: 0px 5px 10px 1px #ccc;
+        }
+        .card:hover .head img{
+            transform: scale(1.5);
+        }
+        .box .btn button:hover{
+            transform: translateY(-2px);
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="card">
+        <div class="head">
+            <img src="./image/运动手表.png" alt="">
+        </div>
+        <div class="box">
+            <div class="content">
+                <h3>智能运动手表 Pro</h3>
+                <p>全天候健康监测，50米防水，超长续航30天，支持多种运动模式。</p>
+                <span>￥899</span>
+                <span><s>￥1299</s></span>
+            </div>
+            <div class="btn">
+                <button>加入购物车</button>
+                <button>立即购买</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="head">
+            <img src="./image/苹果手表.png" alt="">
+        </div>
+        <div class="box">
+            <div class="content">
+                <h3>苹果手表 Pro Pro</h3>
+                <p>全天候健康监测，50米防水，超长续航30天，支持多种运动模式。</p>
+                <span>￥2299</span>
+                <span><s>￥3299</s></span>
+            </div>
+            <div class="btn">
+                <button>加入购物车</button>
+                <button>立即购买</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="head">
+            <img src="./image/耳机.png" alt="">
+        </div>
+        <div class="box">
+            <div class="content">
+                <h3>蓝牙耳机 Pro</h3>
+                <p>360°环境音效，20小时续航，IPX7防水，支持语音助手。</p>
+                <span>￥199</span>
+                <span><s>￥299</s></span>
+            </div>
+            <div class="btn">
+                <button>加入购物车</button>
+                <button>立即购买</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // 获取所有“加入购物车”按钮
+        const btns = document.querySelectorAll('.btn button:first-child');
+        btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+        // 找到这个按钮所在的那个卡片里的商品名称
+        const title = this.closest('.card').querySelector('h3').innerText;
+        console.log('你添加了：' + title);});});
+    </script>
+
+</body>
+</html>
