@@ -144,17 +144,5 @@
             </div>
         </div>
     </div>
-
-
-    <script>
-        // 获取所有“加入购物车”按钮
-        const btns = document.querySelectorAll('.btn button:first-child');
-        btns.forEach(btn => {
-        btn.addEventListener('click', function() {
-        // 找到这个按钮所在的那个卡片里的商品名称
-        const title = this.closest('.card').querySelector('h3').innerText;
-        console.log('你添加了：' + title);});});
-    </script>
-
 </body>
 </html>
